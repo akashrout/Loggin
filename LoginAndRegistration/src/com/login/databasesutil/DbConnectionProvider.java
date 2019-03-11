@@ -9,13 +9,13 @@ public class DbConnectionProvider {
 	public static Connection getConnection() {
 		Connection con =null;
 		try {
-			Class.forName("org.h2.Driver");
+			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
-			 con=DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+			 con=DriverManager.getConnection("jdbc:mysql://localhost:3306/java", "root", "admin");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 	
