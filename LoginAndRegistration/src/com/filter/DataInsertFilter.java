@@ -69,12 +69,12 @@ public class DataInsertFilter implements Filter {
 			out.println("<h1>LNmae cant be empty or less than 4 and should be alphabates");
 			RequestDispatcher dispatcher=request.getRequestDispatcher("addstudentdetails.jsp");
 			dispatcher.include(request, response);
-		}else if(rollno.equals("")||(rollno.length()<3)||(!rollno.matches("[0-9]+"))) {
+		}else if(rollno.equals("")||(rollno.length()<3)) {//||(!rollno.matches("[0-9]+"))) {
 			out.println("<h1>Roll number should be Alphaneumeric");
 			RequestDispatcher dispatcher=request.getRequestDispatcher("addstudentdetails.jsp");
 			dispatcher.include(request, response);
-		}else if(branch.equals("")||(branch.length()<3)||(!branch.matches(regex))) {
-			out.println("<h1>branch cant be empty or less than 4 and should be alphabates");
+		}else if(branch.equals("")||(branch.length()<2)||(!branch.matches(regex))) {
+			out.println("<h1>branch cant be empty or less than 3 and should be alphabates");
 			RequestDispatcher dispatcher=request.getRequestDispatcher("addstudentdetails.jsp");
 			dispatcher.include(request, response);
 		}

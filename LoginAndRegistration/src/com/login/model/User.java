@@ -8,8 +8,8 @@ import javax.servlet.http.HttpSessionBindingListener;
 
 import com.sun.javafx.collections.MappingChange.Map;
 
-public class User implements HttpSessionBindingListener{
-	private static Map<User, HttpSession> login = (Map<User, HttpSession>) new HashMap<User, HttpSession>();
+public class User {
+	//private static Map<User, HttpSession> login = (Map<User, HttpSession>) new HashMap<User, HttpSession>();
 
 	private String id;
 	private String fastname;
@@ -119,23 +119,23 @@ public class User implements HttpSessionBindingListener{
 		this.password = password;
 	}
 
-	@Override
-	public void valueBound(HttpSessionBindingEvent arg0) {
-		// TODO Auto-generated method stub
-		HttpSession session = ((HashMap<User, HttpSession>) login).remove(this);
-        if (session != null) {
-            session.invalidate();
-        }
-        ((HashMap<User, HttpSession>) login).put(this, arg0.getSession());
-		
-		
-	}
-
-	@Override
-	public void valueUnbound(HttpSessionBindingEvent arg0) {
-		// TODO Auto-generated method stub
-		 ((HashMap<User, HttpSession>) login).remove(this);
-		
-	}
+//	@Override
+//	public void valueBound(HttpSessionBindingEvent arg0) {
+//		// TODO Auto-generated method stub
+//		HttpSession session = ((HashMap<User, HttpSession>) login).remove(this);
+//        if (session != null) {
+//            session.invalidate();
+//        }
+//        ((HashMap<User, HttpSession>) login).put(this, arg0.getSession());
+//		
+//		
+//	}
+//
+//	@Override
+//	public void valueUnbound(HttpSessionBindingEvent arg0) {
+//		// TODO Auto-generated method stub
+//		 ((HashMap<User, HttpSession>) login).remove(this);
+//		
+//	}
 	
 }

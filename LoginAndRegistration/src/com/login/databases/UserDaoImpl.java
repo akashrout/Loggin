@@ -48,6 +48,7 @@ public class UserDaoImpl implements UserDao {
 			sql=" insert into USER (ID, FASTNAME,LASTNAME,ADDRESS,EMAIL,PASSWORD)"
 			        + " values (?, ?, ?, ?, ?,?)";
 			preparedStatement=con.prepareStatement(sql);
+			//System.out.println("Before PS: "+sql);
 			preparedStatement.setString(1,user.getId());
 			preparedStatement.setString(2, user.getFastname());
 			preparedStatement.setString(3, user.getLastname());
@@ -55,6 +56,7 @@ public class UserDaoImpl implements UserDao {
 			preparedStatement.setString(5, user.getEmail());
 			preparedStatement.setString(6, user.getPassword());
 			preparedStatement.executeUpdate();
+			//System.out.println("After PS: "+sql);
 			
 			
 		} catch (SQLException e) {
@@ -92,7 +94,8 @@ public class UserDaoImpl implements UserDao {
 		this.password=password;
 		try(Connection con=DbConnectionProvider.getConnection()) {
 			Statement statement=null;
-			sql1="select * from USER where FASTNAME='"+username+"' and PASSWORD='"+password+"'";
+			sql1="select * from USER where EMAIL='"+username+"' and PASSWORD='"+password+"'";
+		//	System.out.println("The Sql query is :"+sql1);
 			// +"and PASSWORD="++;
 			statement=con.createStatement();//
 			//sql1="select * from USER where ID=? and FASTNAME=?";

@@ -1,5 +1,10 @@
 package com.login.databases;
-import java.sql.*;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 public class Mysqltesting {
 	
 	public static void main(String args[]){  
@@ -7,7 +12,6 @@ public class Mysqltesting {
 		Class.forName("com.mysql.jdbc.Driver");  
 		Connection con=DriverManager.getConnection(  
 		"jdbc:mysql://localhost:3306/java","root","admin");  
-		//here sonoo is database name, root is username and password  
 		Statement stmt=con.createStatement();  
 		ResultSet rs=stmt.executeQuery("select * from user");  
 		while(rs.next())  
